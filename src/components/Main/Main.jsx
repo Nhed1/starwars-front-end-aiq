@@ -1,23 +1,32 @@
-import { Input } from "aiq-design-system";
 import { useEffect, useState } from "react";
 import { swapi } from "../../api/swapi";
-export function Main() {
-  const [results, setResults] = useState([]);
-  useEffect(() => {
-    async function getPeople() {
-      const people = await swapi.get("/people");
-      setResults(people);
-    }
+import { useQuery } from "react-query";
 
-    getPeople();
-  }, []);
+export function Main() {
+  const { isLoading, error, data } = useQuery("repoData", () => {
+    return swapi.get("/people");
+  });
+
+  if (isLoading) return "Loading...";
+  if (error) return "an error has ocurred: " + error.message;
+  const personagens = data.data.results.map((each) => {
+    return {
+      name: each.name,
+      height: each.height,
+    };
+  });
+
   return (
     <div>
       <div>
         <h1>(SELECT BUTTON TEXT)</h1>
         <input type="text" />
       </div>
-      <div></div>
+      <div>
+        {personagens.map((personagem) => {
+          return <p>{personagem.name}</p>;
+        })}
+      </div>
     </div>
   );
 }
