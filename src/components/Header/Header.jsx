@@ -1,6 +1,6 @@
 import { HeaderDiv, SelectButton, RegisterButton } from "./StylesHeader";
 
-export function Header() {
+export function Header({ setTitle }) {
   return (
     <HeaderDiv>
       <div>
@@ -9,8 +9,10 @@ export function Header() {
         </h1>
         <h2>CASTING</h2>
       </div>
-      <SelectButton>PERSONAGENS</SelectButton>
-      <SelectButton>FILMES</SelectButton>
+      <SelectButton onClick={() => setTitle("PERSONAGENS")}>
+        PERSONAGENS
+      </SelectButton>
+      <SelectButton onClick={() => setTitle("FILMES")}>FILMES</SelectButton>
       <RegisterButton>CADASTRAR - SE</RegisterButton>
     </HeaderDiv>
   );

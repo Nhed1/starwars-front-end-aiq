@@ -1,7 +1,7 @@
 import { swapi } from "../../api/swapi";
 import { useQuery } from "react-query";
 
-export function Main() {
+export function Main({ title }) {
   const { isLoading, error, data } = useQuery("repoData", () => {
     return swapi.get("/people");
   });
@@ -18,7 +18,7 @@ export function Main() {
   return (
     <div>
       <div>
-        <h1>(TITLE)</h1>
+        <h1>{title}</h1>
         <input type="text" />
       </div>
       <div>
