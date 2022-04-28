@@ -3,6 +3,7 @@ import axios from "axios";
 
 import { MainDiv, GridDiv, SearchDiv } from "./StylesMain";
 import { Input } from "aiq-design-system";
+import { CardPerson } from "../CardPerson/CardPerson";
 
 export function Main({ title }) {
   const { isLoading, error, data } = useQuery("repoData", () => {
@@ -14,7 +15,12 @@ export function Main({ title }) {
   const people = data.data.results.map((person) => {
     return {
       name: person.name,
+      birthYear: person.birth_year,
+      homeworld: person.homeworld,
+      gender: person.gender,
       height: person.height,
+      species: person.species,
+      vehicles: person.vehicles,
     };
   });
 
@@ -25,8 +31,8 @@ export function Main({ title }) {
         <Input type="text" width="100%" />
       </SearchDiv>
       <GridDiv>
-        {people.map((person) => {
-          return <p>{person.name}</p>;
+        {people.map((people) => {
+          return <CardPerson data={people} />;
         })}
       </GridDiv>
     </MainDiv>
