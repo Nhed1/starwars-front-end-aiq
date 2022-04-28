@@ -1,6 +1,7 @@
 import { swapi } from "../../api/swapi";
 import { useQuery } from "react-query";
-import styled from "styled-components";
+import { MainDiv, GridDiv } from "./StylesMain";
+import { Input } from "aiq-design-system";
 
 export function Main({ title }) {
   const { isLoading, error, data } = useQuery("repoData", () => {
@@ -20,7 +21,7 @@ export function Main({ title }) {
     <MainDiv>
       <div>
         <h1>{title}</h1>
-        <input type="text" />
+        <Input type="text" />
       </div>
       <GridDiv>
         {people.map((person) => {
@@ -30,18 +31,3 @@ export function Main({ title }) {
     </MainDiv>
   );
 }
-
-const MainDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 30px 0;
-`;
-
-const GridDiv = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  row-gap: 20px;
-  column-gap: 30px;
-  margin-top: 30px;
-`;
