@@ -1,11 +1,12 @@
-import { swapi } from "../../api/swapi";
 import { useQuery } from "react-query";
+import axios from "axios";
+
 import { MainDiv, GridDiv, SearchDiv } from "./StylesMain";
 import { Input } from "aiq-design-system";
 
 export function Main({ title }) {
   const { isLoading, error, data } = useQuery("repoData", () => {
-    return swapi.get("/people");
+    return axios.get(`https://swapi.dev/api/people`);
   });
 
   if (isLoading) return "Loading...";
