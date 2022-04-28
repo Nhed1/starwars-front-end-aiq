@@ -1,6 +1,6 @@
 import { swapi } from "../../api/swapi";
 import { useQuery } from "react-query";
-import { MainDiv, GridDiv } from "./StylesMain";
+import { MainDiv, GridDiv, SearchDiv } from "./StylesMain";
 import { Input } from "aiq-design-system";
 
 export function Main({ title }) {
@@ -19,10 +19,10 @@ export function Main({ title }) {
 
   return (
     <MainDiv>
-      <div>
+      <SearchDiv>
         <h1>{title}</h1>
-        <Input type="text" />
-      </div>
+        <Input type="text" width="100%" />
+      </SearchDiv>
       <GridDiv>
         {people.map((person) => {
           return <p>{person.name}</p>;

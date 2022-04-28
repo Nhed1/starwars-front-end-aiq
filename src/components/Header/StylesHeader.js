@@ -18,6 +18,7 @@ export const HeaderDiv = styled.div`
     letter-spacing: 1.28px;
     color: #ffe81f;
     font-size: 1.5rem;
+    font-family: "Star Jedi", arial;
   }
 
   button {
