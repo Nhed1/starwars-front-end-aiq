@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { swapi } from "../../api/swapi";
 import { useQuery } from "react-query";
 
@@ -9,22 +8,22 @@ export function Main() {
 
   if (isLoading) return "Loading...";
   if (error) return "an error has ocurred: " + error.message;
-  const personagens = data.data.results.map((each) => {
+  const people = data.data.results.map((person) => {
     return {
-      name: each.name,
-      height: each.height,
+      name: person.name,
+      height: person.height,
     };
   });
 
   return (
     <div>
       <div>
-        <h1>(SELECT BUTTON TEXT)</h1>
+        <h1>(TITLE)</h1>
         <input type="text" />
       </div>
       <div>
-        {personagens.map((personagem) => {
-          return <p>{personagem.name}</p>;
+        {people.map((person) => {
+          return <p>{person.name}</p>;
         })}
       </div>
     </div>
