@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-    @import url(https://allfont.net/allfont.css?fonts=star-jedi);
 
     body {
         margin: 0;
