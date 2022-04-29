@@ -12,7 +12,10 @@ export function CardPerson({ data }) {
 
       <div>
         <strong>DESCRIÇÃO FÍSICA</strong>
-        <p>ESPÉCIE: {data.species ? data.species[0] : "not found"}</p>
+        <strong>ESPÉCIE: </strong>
+        {data.species[0]
+          ? data.species.map((specie) => <p>{specie}</p>)
+          : "Não possui"}
         <p>ALTURA: {data.height}</p>
       </div>
 
@@ -30,4 +33,14 @@ export function CardPerson({ data }) {
 
 const CardDiv = styled.div`
   /* width: 400px; */
+  strong {
+    display: block;
+  }
+  h2 {
+    color: #ffe81f;
+  }
+  p {
+    font-weight: 200;
+    font-size: 0.8rem;
+  }
 `;

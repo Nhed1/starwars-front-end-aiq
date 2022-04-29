@@ -12,6 +12,7 @@ export function Main({ title }) {
 
   if (isLoading) return "Loading...";
   if (error) return "an error has ocurred: " + error.message;
+
   const people = data.data.results.map((person) => {
     return {
       name: person.name,
