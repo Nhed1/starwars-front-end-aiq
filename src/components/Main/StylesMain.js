@@ -16,10 +16,21 @@ export const SearchDiv = styled.div`
   }
 `;
 
-export const GridDiv = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  row-gap: 20px;
-  column-gap: 30px;
-  margin-top: 30px;
+export const FlexStyled = styled.div`
+  width: 100vw;
+  display: flex;
+  margin: 20px -8px 0;
+  flex-wrap: wrap;
+
+  & > * {
+    padding: 8px;
+  }
 `;
+
+// export const GridDiv = styled.div`
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   row-gap: 20px;
+//   column-gap: 30px;
+//   margin-top: 30px;
+// `;

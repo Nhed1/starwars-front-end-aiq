@@ -1,9 +1,21 @@
 import styled from "styled-components";
+import { Flex, Text } from "aiq-design-system";
 
 export function CardPerson({ data }) {
   return (
-    <CardDiv>
-      <h2>{data.name}</h2>
+    <Flex
+      width={{
+        _: "100%",
+        hd: "25%",
+        web: "33%",
+        tablet: "50%",
+        fullhd: "20%",
+      }}
+      flexDirection={"column"}
+    >
+      <Text fontSize={"xxlarge"} color={"primary"}>
+        {data.name}
+      </Text>
       <div>
         <strong>NASCIMENTO</strong>
         <p>DATA: {data.birthYear}</p>
@@ -27,12 +39,11 @@ export function CardPerson({ data }) {
           <p>nao tem veiculo</p>
         )}
       </div>
-    </CardDiv>
+    </Flex>
   );
 }
 
 const CardDiv = styled.div`
-  /* width: 400px; */
   strong {
     display: block;
   }

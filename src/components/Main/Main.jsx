@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import axios from "axios";
 
-import { MainDiv, GridDiv, SearchDiv } from "./StylesMain";
+import { MainDiv, GridDiv, SearchDiv, FlexStyled } from "./StylesMain";
 import { Input } from "aiq-design-system";
 import { CardPerson } from "../CardPerson/CardPerson";
 
@@ -35,11 +35,11 @@ export function Main({ title }) {
           placeholder={`Buscar por ${title.toLowerCase()}`}
         />
       </SearchDiv>
-      <GridDiv>
+      <FlexStyled>
         {people.map((people) => {
           return <CardPerson data={people} />;
         })}
-      </GridDiv>
+      </FlexStyled>
     </MainDiv>
   );
 }
