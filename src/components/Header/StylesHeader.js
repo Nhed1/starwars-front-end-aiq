@@ -6,6 +6,7 @@ export const HeaderDiv = styled.div`
   align-items: center;
   height: 100px;
   background: #0f0f0f 0% 0% no-repeat padding-box;
+  padding: 0 20px;
 
   div {
     display: flex;
@@ -26,12 +27,18 @@ export const HeaderDiv = styled.div`
     width: 270px;
     color: #fafafa;
     background: none;
+    font-weight: bold;
+    font-size: 1.1rem;
   }
 `;
 
 export const SelectButton = styled.button`
   border-radius: 10px;
   border: none;
+  &:hover {
+    background-color: #303030;
+    border-radius: 40px;
+  }
 `;
 export const RegisterButton = styled.button`
   border: 2px solid #ffe81f;

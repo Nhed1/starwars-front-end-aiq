@@ -1,6 +1,8 @@
+import styled from "styled-components";
+
 export function CardPerson({ data }) {
   return (
-    <div>
+    <CardDiv>
       <h2>{data.name}</h2>
       <div>
         <strong>NASCIMENTO</strong>
@@ -22,6 +24,10 @@ export function CardPerson({ data }) {
           <p>nao tem veiculo</p>
         )}
       </div>
-    </div>
+    </CardDiv>
   );
 }
+
+const CardDiv = styled.div`
+  /* width: 400px; */
+`;

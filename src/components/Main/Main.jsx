@@ -28,7 +28,11 @@ export function Main({ title }) {
     <MainDiv>
       <SearchDiv>
         <h1>{title}</h1>
-        <Input type="text" width="100%" />
+        <Input
+          type="text"
+          width="100%"
+          placeholder={`Buscar por ${title.toLowerCase()}`}
+        />
       </SearchDiv>
       <GridDiv>
         {people.map((people) => {
