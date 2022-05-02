@@ -1,9 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
+import startwars from "../fonts/starwars.ttf";
+
 export const GlobalStyle = createGlobalStyle`
     @font-face {
     font-family: 'StarJedi';
-    src: url("../fonts/starwars.ttf");
+    src: url(${startwars});
     }
     body {
         margin: 0;
@@ -12,8 +14,9 @@ export const GlobalStyle = createGlobalStyle`
         background-color: #000000;
         color: #FFFFFF;
     }
-    h2 {
-        font-family: "StarJedi" !important;
+
+    * {
+        box-sizing: border-box;
     }
     
 `;
