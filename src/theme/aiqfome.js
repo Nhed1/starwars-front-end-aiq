@@ -45,56 +45,15 @@ const space = [
 ];
 
 const colors = {
-  // grey scale
-  white: "#ffffff",
-  lightGrey: "#f5f5f5",
-  mediumGrey: "#dedede",
-  grey: "#bfbfbf",
-  darkGrey: "#8c8c8c",
-  darkerGrey: "#434343",
-  almostBlack: "#262626",
-  black: "#000000",
-
-  // brand
-  primaryLightest: "#F4E9FB",
-  primaryLight: "#c24dff",
   primary: "#ffe81f",
-  primaryDark: "#7B1FA2",
-  secondary: "#fafafa",
-  secondaryDark: "#00A296",
-  magaluMedium: "#1F6DCC",
 
-  // actions
-  info: "#2689ff",
-  success: "#5EBE2E",
-  warning: "#faad14",
-  error: "#ff4d4f",
-  errorLight: "#FFDBDC",
+  white: "#FFFFFF",
+  "white-800": "#FAFAFA",
 
-  // common
-  red: "#DE4E51",
-  pink: "#EB2F96",
-  pinkDark: "#C41D7F",
-  purple: "#9824D4",
-  deepPurple: "#8654DE",
-  indigo: "#4C60D0",
-  blue: "#4AAFFF",
-  cyan: "#69D6E3",
-  teal: "#33A59A",
-  green: "#78C77C",
-  lime: "#B5BF56",
-  yellow: "#FFC107",
-  orange: "#F8A23D",
-  deepOrange: "#FD825B",
-  brown: "#C9775D",
-
-  // notice_banners
-  notice_light_red: "#FFEDEC",
-  notice_dark_red: "#FF4D4F",
-  notice_light_green: "#DFF1F1",
-  notice_dark_green: "#00A296",
-  notice_light_purple: "#F3E5F5",
-  notice_dark_purple: "#7B1FA2",
+  black: " #000000",
+  "gray-900": "#0F0F0F",
+  "gray-500": "#303030",
+  "gray-200": "#606060",
 };
 
 const defaultTheme = {
