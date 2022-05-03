@@ -18,7 +18,7 @@ export const HeaderDiv = styled.div`
   h2 {
     line-height: 20px;
     color: var(--primary);
-    font-size: 1.5rem;
+    font-size: 25px;
   }
 
   button {
@@ -26,14 +26,16 @@ export const HeaderDiv = styled.div`
     width: 270px;
     color: var(--white-800);
     background: none;
-    font-weight: bold;
-    font-size: 1.1rem;
+    font-weight: 400;
+    font-size: 18px;
+    font-family: "StarJedi";
   }
 `;
 
 export const SelectButton = styled.button`
   border-radius: 10px;
   border: none;
+  transition: background-color 0.2s linear;
   &:hover {
     background-color: var(--gray-500);
     border-radius: 40px;
@@ -41,4 +43,10 @@ export const SelectButton = styled.button`
 `;
 export const RegisterButton = styled.button`
   border: 2px solid var(--primary);
+
+  transition: all 0.2s linear;
+  &:hover {
+    background-color: var(--primary);
+    color: var(--gray-900);
+  }
 `;
