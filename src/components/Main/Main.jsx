@@ -1,11 +1,14 @@
+import { useTranslation } from "react-i18next";
 import { useQuery } from "react-query";
 import axios from "axios";
 
 import { MainDiv, SearchDiv, FlexStyled } from "./StylesMain";
-import { Input } from "aiq-design-system";
+import { InputStyled } from "./StylesMain";
 import { CardPerson } from "../CardPerson/CardPerson";
 
 export function Main({ title }) {
+  const { t: translate } = useTranslation();
+
   const { isLoading, error, data } = useQuery("repoData", () => {
     return axios.get(`https://swapi.dev/api/people`);
   });
@@ -29,7 +32,16 @@ export function Main({ title }) {
     <MainDiv>
       <SearchDiv>
         <h1>{title}</h1>
-        <Input type="text" width="100%" placeholder={`Buscar por ${title}`} />
+        <InputStyled
+          type="text"
+          width="100%"
+          placeholder={`${translate(
+            "main:inputPlaceholder"
+          )} ${title.toUpperCase()}`}
+          backgroundColor={"gray-900"}
+          border={"1px solid"}
+          borderColor={"gray-200"}
+        />
       </SearchDiv>
       <FlexStyled>
         {people.map((people) => {
