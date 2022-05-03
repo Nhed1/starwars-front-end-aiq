@@ -10,18 +10,20 @@ export const SearchDiv = styled.div`
   max-width: 570px;
   width: 100%;
   h1 {
-    font-size: 1.5rem;
+    font-size: 25px;
     text-align: center;
     margin: 30px 0;
   }
 `;
 
 export const FlexStyled = styled.div`
-  width: 100vw;
+  width: 100%;
   display: flex;
-  margin: 20px -8px 0;
-  flex-wrap: wrap;
 
+  margin: 30px -8px 0;
+  padding: 20px;
+
+  flex-wrap: wrap;
   & > * {
     padding: 8px;
   }

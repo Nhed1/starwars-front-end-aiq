@@ -9,7 +9,7 @@ import { useState } from "react";
 const queryClient = new QueryClient();
 
 function App() {
-  const [title, setTitle] = useState("PERSONAGENS");
+  const [title, setTitle] = useState("personagens");
 
   return (
     <ThemeProvider defaultTheme={theme}>

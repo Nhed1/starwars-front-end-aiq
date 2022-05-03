@@ -33,12 +33,11 @@ export const HeaderDiv = styled.div`
 `;
 
 export const SelectButton = styled.button`
-  border-radius: 10px;
+  border-radius: 40px;
   border: none;
   transition: background-color 0.2s linear;
   &:hover {
     background-color: var(--gray-500);
-    border-radius: 40px;
   }
 `;
 export const RegisterButton = styled.button`
