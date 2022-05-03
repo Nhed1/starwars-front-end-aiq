@@ -1,5 +1,4 @@
 import { HeaderDiv, SelectButton, RegisterButton } from "./StylesHeader";
-
 export function Header({ setTitle }) {
   return (
     <HeaderDiv>
