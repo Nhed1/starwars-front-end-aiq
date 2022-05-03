@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { Flex, Text } from "aiq-design-system";
 
 export function CardPerson({ data }) {
@@ -18,40 +17,29 @@ export function CardPerson({ data }) {
       </Text>
       <div>
         <strong>NASCIMENTO</strong>
-        <p>DATA: {data.birthYear}</p>
-        <p>PLANETA: {data.homeworld}</p>
+        <Text fontSize={"medium"}>DATA: {data.birthYear}</Text>
+        <Text fontSize={"medium"}>PLANETA: {data.homeworld}</Text>
       </div>
 
       <div>
-        <strong>DESCRIÇÃO FÍSICA</strong>
-        <strong>ESPÉCIE: </strong>
-        {data.species[0]
-          ? data.species.map((specie) => <p>{specie}</p>)
-          : "Não possui"}
-        <p>ALTURA: {data.height}</p>
-      </div>
-
-      <div>
-        <strong>VEÍCULOS USADOS</strong>
-        {data.vehicle ? (
-          data.vehicles.map((vehicle) => <p>{vehicle}</p>)
+        <Text fontSize={"large"}>DESCRIÇÃO FÍSICA</Text>
+        <Text fontSize={"medium"}>ESPÉCIE: </Text>
+        {data.species[0] ? (
+          data.species.map((specie) => <Text>{specie}</Text>)
         ) : (
-          <p>nao tem veiculo</p>
+          <Text fontSize={"medium"}>Não possui</Text>
+        )}
+        <Text fontSize={"medium"}>ALTURA: {data.height}</Text>
+      </div>
+
+      <div>
+        <Text fontSize={"large"}>VEICULOS USADOS</Text>
+        {data.vehicle ? (
+          data.vehicles.map((vehicle) => <Text>{vehicle}</Text>)
+        ) : (
+          <Text>Não possui veiculos</Text>
         )}
       </div>
     </Flex>
   );
 }
-
-const CardDiv = styled.div`
-  strong {
-    display: block;
-  }
-  h2 {
-    color: #ffe81f;
-  }
-  p {
-    font-weight: 200;
-    font-size: 0.8rem;
-  }
-`;
