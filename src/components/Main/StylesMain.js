@@ -1,17 +1,6 @@
 import { Input } from "aiq-design-system";
 import styled from "styled-components";
 
-export const InputStyled = styled(Input)`
-  &::placeholder {
-    color: var(--white);
-  }
-
-  & {
-    color: white;
-    font-size: 18px;
-  }
-`;
-
 export const MainDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -29,10 +18,23 @@ export const SearchDiv = styled.div`
   }
 `;
 
-export const FlexStyled = styled.div`
+export const InputStyled = styled(Input)`
+  &::placeholder {
+    color: var(--white);
+  }
+
+  & {
+    color: white;
+    font-size: 18px;
+  }
+`;
+
+export const FlexContainerStyled = styled.div`
   width: 100%;
   display: flex;
+  justify-content: center;
 
+  gap: 20px;
   margin: 30px -8px 0;
   padding: 20px;
 

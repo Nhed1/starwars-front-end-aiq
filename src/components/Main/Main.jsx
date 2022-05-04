@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useQuery } from "react-query";
 import axios from "axios";
 
-import { MainDiv, SearchDiv, FlexStyled } from "./StylesMain";
+import { MainDiv, SearchDiv, FlexContainerStyled } from "./StylesMain";
 import { InputStyled } from "./StylesMain";
 import { CardPerson } from "../CardPerson/CardPerson";
 
@@ -43,11 +43,11 @@ export function Main({ title }) {
           borderColor={"gray-200"}
         />
       </SearchDiv>
-      <FlexStyled>
+      <FlexContainerStyled>
         {people.map((people) => {
           return <CardPerson data={people} />;
         })}
-      </FlexStyled>
+      </FlexContainerStyled>
     </MainDiv>
   );
 }

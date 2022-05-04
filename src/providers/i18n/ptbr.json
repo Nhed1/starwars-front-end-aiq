@@ -6,5 +6,21 @@
   "main": {
     "title": "personagens",
     "inputPlaceholder": "FITRE PELO NOME DOS "
+  },
+  "card": {
+    "birth": {
+      "title": "nascimento",
+      "birthYear": "data: ",
+      "homeworld": "planeta: "
+    },
+    "body": {
+      "title": "descrição física",
+      "specie": "espécie: ",
+      "height": "altura: "
+    },
+    "vehicles": {
+      "title": "veículos usados"
+    },
+    "errorMessages": ["não possui", "não possui veículos"]
   }
 }

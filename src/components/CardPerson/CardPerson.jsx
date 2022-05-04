@@ -1,8 +1,11 @@
-import { Flex, Text } from "aiq-design-system";
+import { CardPersonBirth } from "./CardPersonBirth";
+import { CardPersonBody } from "./CardPersonBody";
+import { FlexStyled } from "./CardPersonStyles";
+import { CardPersonVehicles } from "./CardPersonVehicles";
 
 export function CardPerson({ data }) {
   return (
-    <Flex
+    <FlexStyled
       width={{
         _: "100%",
         hd: "25%",
@@ -12,34 +15,9 @@ export function CardPerson({ data }) {
       }}
       flexDirection={"column"}
     >
-      <Text fontSize={"xxlarge"} color={"primary"}>
-        {data.name}
-      </Text>
-      <div>
-        <strong>NASCIMENTO</strong>
-        <Text fontSize={"medium"}>DATA: {data.birthYear}</Text>
-        <Text fontSize={"medium"}>PLANETA: {data.homeworld}</Text>
-      </div>
-
-      <div>
-        <Text fontSize={"large"}>DESCRIÇÃO FÍSICA</Text>
-        <Text fontSize={"medium"}>ESPÉCIE: </Text>
-        {data.species[0] ? (
-          data.species.map((specie) => <Text>{specie}</Text>)
-        ) : (
-          <Text fontSize={"medium"}>Não possui</Text>
-        )}
-        <Text fontSize={"medium"}>ALTURA: {data.height}</Text>
-      </div>
-
-      <div>
-        <Text fontSize={"large"}>VEICULOS USADOS</Text>
-        {data.vehicle ? (
-          data.vehicles.map((vehicle) => <Text>{vehicle}</Text>)
-        ) : (
-          <Text>Não possui veiculos</Text>
-        )}
-      </div>
-    </Flex>
+      <CardPersonBirth data={data} />
+      <CardPersonBody data={data} />
+      <CardPersonVehicles data={data} />
+    </FlexStyled>
   );
 }
