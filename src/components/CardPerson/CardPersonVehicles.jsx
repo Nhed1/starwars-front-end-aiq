@@ -7,7 +7,7 @@ export function CardPersonVehicles({ data }) {
   return (
     <Flex flexDirection="column">
       <Text fontSize="xlarge">{translate("card:vehicles:title")}</Text>
-      {data.vehicle ? (
+      {data.vehicles?.length > 0 ? (
         data.vehicles.map((vehicle) => <Text>{vehicle}</Text>)
       ) : (
         <Text>{translate("card:errorMessages.1")}</Text>

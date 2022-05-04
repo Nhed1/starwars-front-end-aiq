@@ -45,7 +45,7 @@ export function Main({ title }) {
       </SearchDiv>
       <FlexContainerStyled>
         {people.map((people) => {
-          return <CardPerson data={people} />;
+          return <CardPerson data={people} key={people.name} />;
         })}
       </FlexContainerStyled>
     </MainDiv>
