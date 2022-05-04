@@ -11,7 +11,9 @@ export function CardPersonBody({ data }) {
         <Text fontSize={"medium"}>{translate("card:body:specie")} </Text>
         {data.species.length > 0 ? (
           data.species.map((specieUrl) => (
-            <APIData url={specieUrl} key={specieUrl} field="name" />
+            <Text fontSize="medium">
+              <APIData url={specieUrl} key={specieUrl} field="name" />
+            </Text>
           ))
         ) : (
           <Text fontSize={"medium"}>{translate("card:errorMessages.0")}</Text>

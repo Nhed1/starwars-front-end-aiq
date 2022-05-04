@@ -1,5 +1,6 @@
 import { Flex, Text } from "aiq-design-system";
 import { useTranslation } from "react-i18next";
+import { APIData } from "../ApiData";
 
 export function CardPersonBirth({ data }) {
   const { t: translate } = useTranslation();
@@ -14,7 +15,8 @@ export function CardPersonBirth({ data }) {
         {translate("card:birth:birthYear")} {data.birthYear}
       </Text>
       <Text fontSize={"medium"}>
-        {translate("card:birth:homeworld")} {data.homeworld}
+        {translate("card:birth:homeworld")}{" "}
+        {<APIData url={data.homeworld} field="name" />}
       </Text>
     </Flex>
   );
