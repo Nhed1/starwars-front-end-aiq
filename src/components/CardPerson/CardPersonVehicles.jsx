@@ -1,6 +1,7 @@
 import { Flex, Text } from "aiq-design-system";
 import { useTranslation } from "react-i18next";
 import { APIData } from "../ApiData";
+import { TextInfo } from "../TextInfo";
 
 export function CardPersonVehicles({ data }) {
   const { t: translate } = useTranslation();
@@ -10,12 +11,12 @@ export function CardPersonVehicles({ data }) {
       <Text fontSize="xlarge">{translate("card:vehicles:title")}</Text>
       {data.vehicles?.length > 0 ? (
         data.vehicles.map((vehicle) => (
-          <Text>
+          <TextInfo>
             <APIData url={vehicle} field="name" />
-          </Text>
+          </TextInfo>
         ))
       ) : (
-        <Text>{translate("card:errorMessages.1")}</Text>
+        <TextInfo>{translate("card:errorMessages.1")}</TextInfo>
       )}
     </Flex>
   );

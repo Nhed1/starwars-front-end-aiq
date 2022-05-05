@@ -1,9 +1,13 @@
 import { CardPersonBirth } from "./CardPersonBirth";
 import { CardPersonBody } from "./CardPersonBody";
-import { FlexStyled } from "./CardPersonStyles";
 import { CardPersonVehicles } from "./CardPersonVehicles";
 
+import { FlexStyled } from "./CardPersonStyles";
+import { ButtonStyled } from "./CardPersonStyles";
+import { useTranslation } from "react-i18next";
+
 export function CardPerson({ data }) {
+  const { t: translate } = useTranslation();
   return (
     <FlexStyled
       width={{
@@ -14,10 +18,12 @@ export function CardPerson({ data }) {
         fullhd: "20%",
       }}
       flexDirection={"column"}
+      justifyContent="space-between"
     >
       <CardPersonBirth data={data} />
       <CardPersonBody data={data} />
       <CardPersonVehicles data={data} />
+      <ButtonStyled> {translate("card:button:title")}</ButtonStyled>
     </FlexStyled>
   );
 }

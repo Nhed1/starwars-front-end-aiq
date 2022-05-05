@@ -10,17 +10,20 @@
   "card": {
     "birth": {
       "title": "nascimento",
-      "birthYear": "data: ",
-      "homeworld": "planeta: "
+      "birthYear": "DATA: ",
+      "homeworld": "PLANETA: "
     },
     "body": {
       "title": "descrição física",
-      "specie": "espécie: ",
-      "height": "altura: "
+      "specie": "ESPÉCIE: ",
+      "height": "ALTURA: "
     },
     "vehicles": {
       "title": "veículos usados"
     },
-    "errorMessages": ["não possui", "não possui veículos"]
+    "button": {
+      "title": "ver detalhes"
+    },
+    "errorMessages": ["Não possui", "Não possui veículos"]
   }
 }
