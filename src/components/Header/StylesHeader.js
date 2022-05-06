@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { css } from "styled-components";
 
 export const HeaderDiv = styled.div`
   display: flex;
@@ -39,6 +40,11 @@ export const SelectButton = styled.button`
   &:hover {
     background-color: var(--gray-500);
   }
+  ${({ selected }) =>
+    !!selected &&
+    css`
+      background-color: var(--gray-500) !important;
+    `}
 `;
 export const RegisterButton = styled.button`
   border: 2px solid var(--primary);

@@ -2,14 +2,14 @@ import { CardPersonBirth } from "./CardPersonBirth";
 import { CardPersonBody } from "./CardPersonBody";
 import { CardPersonVehicles } from "./CardPersonVehicles";
 
-import { FlexStyled } from "./CardPersonStyles";
-import { ButtonStyled } from "./CardPersonStyles";
+import { FlexStyled } from "../../../styles/CardStyles";
+import { ButtonStyled } from "../../../styles/CardStyles";
 
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export function CardPerson({ data, title }) {
-  const route = title === "personagens" ? "person" : "movie";
+  const route = title === "personagens" ? "people" : "movies";
   const { t: translate } = useTranslation();
   return (
     <FlexStyled

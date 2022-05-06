@@ -1,24 +1,21 @@
 import { useTranslation } from "react-i18next";
 import { useQuery } from "react-query";
 import axios from "axios";
-
-import { MainDiv, SearchDiv, FlexContainerStyled } from "./StylesMain";
-import { InputStyled } from "./StylesMain";
-import { CardPerson } from "../CardPerson/CardPerson";
-import { useCallback } from "react";
-
-export function Main({ title }) {
+import { getId } from "../../util/getId";
+import {
+  FlexContainerStyled,
+  InputStyled,
+  MainDiv,
+  SearchDiv,
+} from "../../styles/ContainerStyles";
+import { CardPerson } from "./CardPerson/CardPerson";
+export function People({ title }) {
   const { t: translate } = useTranslation();
+  let URL = `https://swapi.dev/api/people`;
 
   const { isLoading, error, data } = useQuery("repoData", () => {
-    return axios.get(`https://swapi.dev/api/people`);
+    return axios.get(URL);
   });
-
-  const getId = useCallback((url = "") => {
-    const params = new URL(url).pathname.split("/").filter((e) => !!e);
-
-    return params[params.length - 1];
-  }, []);
 
   if (isLoading) return "Loading...";
   if (error) return "an error has ocurred: " + error.message;
