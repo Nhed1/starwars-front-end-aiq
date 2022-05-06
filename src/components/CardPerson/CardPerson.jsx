@@ -4,9 +4,12 @@ import { CardPersonVehicles } from "./CardPersonVehicles";
 
 import { FlexStyled } from "./CardPersonStyles";
 import { ButtonStyled } from "./CardPersonStyles";
+
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-export function CardPerson({ data }) {
+export function CardPerson({ data, title }) {
+  const route = title === "personagens" ? "person" : "movie";
   const { t: translate } = useTranslation();
   return (
     <FlexStyled
@@ -23,7 +26,9 @@ export function CardPerson({ data }) {
       <CardPersonBirth data={data} />
       <CardPersonBody data={data} />
       <CardPersonVehicles data={data} />
-      <ButtonStyled> {translate("card:button:title")}</ButtonStyled>
+      <Link to={`/${route}/${data.id}`}>
+        <ButtonStyled> {translate("card:button:title")}</ButtonStyled>
+      </Link>
     </FlexStyled>
   );
 }
