@@ -4,15 +4,23 @@ import { GlobalStyle } from "./styles/globalStyles";
 import { useState } from "react";
 import { Provider } from "./providers";
 
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import PersonDetails from "./components/PersonDetails/[id]";
+
 export function App() {
   const [title, setTitle] = useState("personagens");
 
   return (
-    <Provider>
-      <GlobalStyle />
-      <Header setTitle={setTitle} />
-      <Main title={title} />
-    </Provider>
+    <Router>
+      <Provider>
+        <GlobalStyle />
+        <Header setTitle={setTitle} />
+        <Routes>
+          <Route path="/" element={<Main title={title} />} />
+          <Route path="/:id" element={<PersonDetails />} />
+        </Routes>
+      </Provider>
+    </Router>
   );
 }
 
