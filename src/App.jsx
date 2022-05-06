@@ -5,7 +5,9 @@ import { useState } from "react";
 import { Provider } from "./providers";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import PersonDetails from "./components/PersonDetails/[id]";
+import MovieDetails from "./components/MovieDetails/[id]";
 
 export function App() {
   const [title, setTitle] = useState("personagens");
@@ -17,7 +19,8 @@ export function App() {
         <Header setTitle={setTitle} />
         <Routes>
           <Route path="/" element={<Main title={title} />} />
-          <Route path="/:id" element={<PersonDetails />} />
+          <Route path="/person/:id" element={<PersonDetails />} />
+          <Route path="/movies/:id" element={<MovieDetails />} />
         </Routes>
       </Provider>
     </Router>
