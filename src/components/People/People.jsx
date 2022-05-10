@@ -1,16 +1,11 @@
-import { useTranslation } from "react-i18next";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { getId } from "../../util/getId";
-import {
-  FlexContainerStyled,
-  InputStyled,
-  MainDiv,
-  SearchDiv,
-} from "../../styles/ContainerStyles";
+import { FlexContainerStyled, MainDiv } from "../../styles/ContainerStyles";
 import { CardPerson } from "./CardPerson/CardPerson";
+
+import { SearchInput } from "../SearchInput/SearchInput";
 export function People({ title }) {
-  const { t: translate } = useTranslation();
   let URL = `https://swapi.dev/api/people`;
 
   const { isLoading, isFetching, error, data } = useQuery("repoPeople", () => {
@@ -34,19 +29,7 @@ export function People({ title }) {
   });
   return (
     <MainDiv>
-      <SearchDiv>
-        <h1>{title}</h1>
-        <InputStyled
-          type="text"
-          width="100%"
-          placeholder={`${translate(
-            "main:inputPlaceholder"
-          )} ${title.toUpperCase()}`}
-          backgroundColor={"gray-900"}
-          border={"1px solid"}
-          borderColor={"gray-200"}
-        />
-      </SearchDiv>
+      <SearchInput title={title} />
       <FlexContainerStyled>
         {people.map((people) => {
           return <CardPerson data={people} key={people.name} title={title} />;

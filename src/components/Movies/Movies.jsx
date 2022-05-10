@@ -1,16 +1,14 @@
 import { useTranslation } from "react-i18next";
 import { useQuery } from "react-query";
 import axios from "axios";
-import { getId } from "../../util/getId";
-import {
-  FlexContainerStyled,
-  InputStyled,
-  MainDiv,
-  SearchDiv,
-} from "../../styles/ContainerStyles";
-import { CardMovie } from "./CardMovie/CardMovie";
-import { Flex, Text } from "aiq-design-system";
 import moment from "moment";
+
+import { Flex, Text } from "aiq-design-system";
+import { CardMovie } from "./CardMovie/CardMovie";
+import { SearchInput } from "../SearchInput/SearchInput";
+import { FlexContainerStyled, MainDiv } from "../../styles/ContainerStyles";
+
+import { getId } from "../../util/getId";
 
 export function Movies({ title }) {
   const { t: translate } = useTranslation();
@@ -55,19 +53,7 @@ export function Movies({ title }) {
   });
   return (
     <MainDiv>
-      <SearchDiv>
-        <h1>{title}</h1>
-        <InputStyled
-          type="text"
-          width="100%"
-          placeholder={`${translate(
-            "main:inputPlaceholder"
-          )} ${title.toUpperCase()}`}
-          backgroundColor={"gray-900"}
-          border={"1px solid"}
-          borderColor={"gray-200"}
-        />
-      </SearchDiv>
+      <SearchInput />
       <FlexContainerStyled>
         {movies.map((movies) => {
           {
