@@ -26,7 +26,7 @@ export function Movies({ title }) {
       id: getId(movie.url),
       title: movie.title,
       episode_id: movie.episode_id,
-      producer: movie.producer,
+      director: movie.director,
       release_date: movie.release_date,
     };
   });
@@ -47,7 +47,10 @@ export function Movies({ title }) {
       </SearchDiv>
       <FlexContainerStyled>
         {movies.map((movies) => {
-          return <CardMovie data={movies} key={movies.title} title={title} />;
+          {
+            console.log(movies);
+          }
+          return <CardMovie data={movies} key={movies.title} />;
         })}
       </FlexContainerStyled>
     </MainDiv>

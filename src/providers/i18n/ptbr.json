@@ -21,9 +21,16 @@
     "vehicles": {
       "title": "veículos usados"
     },
+    "film": {
+      "episode": "Episódio",
+      "info": "informações",
+      "release_date": "Lançado em: ",
+      "director": "Dirigido por: "
+    },
     "button": {
       "title": "ver detalhes"
     },
+
     "errorMessages": ["Não possui", "Não possui veículos"]
   }
 }
