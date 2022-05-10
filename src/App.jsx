@@ -24,8 +24,8 @@ export function App() {
         <GlobalStyle />
         <Header setTitle={setTitle} />
         <Routes>
-          <Route path="/people" element={<People title={title} />} />
-          <Route path="/movies" element={<Movies title={title} />} />
+          <Route path="/people" element={<People title="personagens" />} />
+          <Route path="/movies" element={<Movies title="filmes" />} />
           <Route path="/people/:id" element={<PersonDetails />} />
           <Route path="/movies/:id" element={<MovieDetails />} />
           <Route path="*" element={<Navigate to="/people" replace />} />

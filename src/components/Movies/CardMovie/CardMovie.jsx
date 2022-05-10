@@ -5,7 +5,7 @@ import { Movies } from "../Movies";
 import { Text, Flex } from "aiq-design-system";
 import { TextInfo } from "../../TextInfo";
 
-export function CardMovie({ data, title }) {
+export function CardMovie({ data }) {
   const { t: translate } = useTranslation();
   return (
     <FlexStyled
