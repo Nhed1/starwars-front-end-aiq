@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { memo } from "react";
 
 export const APIData = memo(({ url, field }) => {
-  const { data, isFetching } = useQueryFetch(url);
+  const { data, isLoading } = useQueryFetch(url);
 
-  if (isFetching) return "CARREGANDO...";
+  if (isLoading) return "CARREGANDO...";
 
   return data[field] || "";
 });

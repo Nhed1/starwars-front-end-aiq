@@ -4,7 +4,17 @@ import { I18nextProvider } from "react-i18next";
 import theme from "../theme/aiqfome";
 import i18n from "./i18n";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultConfig: {
+    queries: {
+      retry: false,
+      staleTime: 50,
+      refetchOnMount: false,
+      refetchInterval: false,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 export function Provider({ children }) {
   return (

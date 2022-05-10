@@ -16,7 +16,7 @@ export function Movies({ title }) {
   const { t: translate } = useTranslation();
   let URL = `https://swapi.dev/api/films`;
 
-  const { isLoading, error, data } = useQuery("repoData", () => {
+  const { isLoading, error, data } = useQuery("repoMovies", () => {
     return axios.get(URL);
   });
 
@@ -43,7 +43,6 @@ export function Movies({ title }) {
       </Flex>
     );
 
-  const now = moment();
   const movies = data.data.results.map((movie) => {
     return {
       id: getId(movie.url),

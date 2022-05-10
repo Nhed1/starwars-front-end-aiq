@@ -13,14 +13,14 @@ export function People({ title }) {
   const { t: translate } = useTranslation();
   let URL = `https://swapi.dev/api/people`;
 
-  const { isLoading, error, data } = useQuery("repoData", () => {
-    return axios.get(URL);
+  const { isLoading, isFetching, error, data } = useQuery("repoPeople", () => {
+    return axios.get(URL).then((data) => data?.data);
   });
 
-  if (isLoading) return "Loading...";
-  if (error) return "an error has ocurred: " + error.message;
+  if (isLoading || !data) return <h1> "Loading..."</h1>;
+  if (error) return <h1>"an error has ocurred: " + {error.message}</h1>;
 
-  const people = data.data.results.map((person) => {
+  const people = data?.results?.map((person) => {
     return {
       id: getId(person.url),
       name: person.name,
