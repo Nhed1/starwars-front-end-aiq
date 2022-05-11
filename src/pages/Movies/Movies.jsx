@@ -3,10 +3,10 @@ import axios from "axios";
 import moment from "moment";
 
 import { FlexContainerStyled, MainDiv } from "../../styles/ContainerStyles";
-import { CardMovie } from "./CardMovie/CardMovie";
-import { SearchInput } from "../SearchInput/SearchInput";
+import { CardMovie } from "../../components/CardMovie/CardMovie";
+import { SearchInput } from "../../components/SearchInput/SearchInput";
 import { LoadingScreen } from "../LoadingScreen";
-import { ErrorScreen } from "../../pages/ErrorScreen";
+import { ErrorScreen } from "../ErrorScreen";
 
 import { getId } from "../../util/getId";
 

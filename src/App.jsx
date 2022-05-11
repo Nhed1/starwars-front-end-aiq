@@ -1,19 +1,19 @@
 import { Header } from "./components/Header/Header";
-import { People } from "./components/People/People";
+import { People } from "./pages/People/People";
+import PersonDetails from "./pages/PersonDetails/[id]";
+import MovieDetails from "./pages/MovieDetails/[id]";
+import { Movies } from "./pages/Movies/Movies";
+
 import { GlobalStyle } from "./styles/globalStyles";
+
 import { useState } from "react";
 import { Provider } from "./providers";
-
 import {
   BrowserRouter as Router,
   Navigate,
   Route,
   Routes,
 } from "react-router-dom";
-
-import PersonDetails from "./components/PersonDetails/[id]";
-import MovieDetails from "./components/MovieDetails/[id]";
-import { Movies } from "./components/Movies/Movies";
 
 export function App() {
   const [title, setTitle] = useState("personagens");

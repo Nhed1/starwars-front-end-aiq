@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { ButtonStyled, FlexStyled } from "../../../styles/CardStyles";
-import { Movies } from "../Movies";
+import { ButtonStyled, FlexStyled } from "../../styles/CardStyles";
 import { Text, Flex } from "aiq-design-system";
-import { TextInfo } from "../../TextInfo";
+import { TextInfo } from "../TextInfo";
 
 export function CardMovie({ data }) {
   const { t: translate } = useTranslation();

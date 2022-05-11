@@ -5,16 +5,14 @@ import { getId } from "../../util/getId";
 import { FlexContainerStyled, MainDiv } from "../../styles/ContainerStyles";
 import { Pagination } from "aiq-design-system";
 
-import { CardPerson } from "./CardPerson/CardPerson";
-import { LoadingScreen } from "../../pages/LoadingScreen";
-import { ErrorScreen } from "../../pages/ErrorScreen";
-import { SearchInput } from "../SearchInput/SearchInput";
+import { CardPerson } from "../../components/CardPerson/CardPerson";
+import { LoadingScreen } from "../LoadingScreen";
+import { ErrorScreen } from "../ErrorScreen";
+import { SearchInput } from "../../components/SearchInput/SearchInput";
 import { useState } from "react";
 
 export function People({ title }) {
   const [page, setPage] = useState(1);
-
-  function handlePagination() {}
 
   const { isLoading, error, data } = useQuery(["repoPeople", page], () => {
     return axios

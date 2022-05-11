@@ -1,7 +1,7 @@
 import { Flex, Text } from "aiq-design-system";
 import { useTranslation } from "react-i18next";
-import { APIData } from "../../ApiData";
-import { TextInfo } from "../../TextInfo";
+import { TextInfo } from "../TextInfo";
+import { APIData } from "../ApiData";
 
 export function CardPersonBirth({ data }) {
   const { t: translate } = useTranslation();

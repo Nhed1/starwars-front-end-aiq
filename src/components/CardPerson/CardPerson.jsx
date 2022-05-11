@@ -2,8 +2,7 @@ import { CardPersonBirth } from "./CardPersonBirth";
 import { CardPersonBody } from "./CardPersonBody";
 import { CardPersonVehicles } from "./CardPersonVehicles";
 
-import { FlexStyled } from "../../../styles/CardStyles";
-import { ButtonStyled } from "../../../styles/CardStyles";
+import { ButtonStyled, FlexStyled } from "../../styles/CardStyles";
 
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
