@@ -11,7 +11,7 @@ import { ErrorScreen } from "../ErrorScreen";
 import { getId } from "../../util/getId";
 
 export function Movies({ title }) {
-  let URL = `https://swapi.dev/api/film`;
+  let URL = `https://swapi.dev/api/films`;
 
   const { isLoading, error, data } = useQuery("repoMovies", () => {
     return axios.get(URL);

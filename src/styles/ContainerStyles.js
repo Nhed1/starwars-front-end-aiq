@@ -4,6 +4,8 @@ export const MainDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
 `;
 
 export const FlexContainerStyled = styled.div`
