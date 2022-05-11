@@ -1,45 +1,23 @@
-import { useTranslation } from "react-i18next";
 import { useQuery } from "react-query";
 import axios from "axios";
 import moment from "moment";
 
-import { Flex, Text } from "aiq-design-system";
+import { FlexContainerStyled, MainDiv } from "../../styles/ContainerStyles";
 import { CardMovie } from "./CardMovie/CardMovie";
 import { SearchInput } from "../SearchInput/SearchInput";
-import { FlexContainerStyled, MainDiv } from "../../styles/ContainerStyles";
+import { LoadingScreen } from "../LoadingScreen";
+import { ErrorScreen } from "../ErrorScreen";
 
 import { getId } from "../../util/getId";
 
 export function Movies({ title }) {
-  const { t: translate } = useTranslation();
-  let URL = `https://swapi.dev/api/films`;
+  let URL = `https://swapi.dev/api/film`;
 
   const { isLoading, error, data } = useQuery("repoMovies", () => {
     return axios.get(URL);
   });
-
-  if (isLoading)
-    return (
-      <Flex
-        height="100vh"
-        width="100vw"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Text>Carregando</Text>
-      </Flex>
-    );
-  if (error)
-    return (
-      <Flex
-        height="100vh"
-        width="100vw"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Text>Aconteceu um erro: ${error.message}</Text>
-      </Flex>
-    );
+  if (isLoading) return <LoadingScreen />;
+  if (error) return <ErrorScreen error={error} />;
 
   const movies = data.data.results.map((movie) => {
     return {
@@ -51,14 +29,14 @@ export function Movies({ title }) {
       release_date: moment(movie.release_date).format("DD/MM/YYYY"),
     };
   });
+
+  console.log(movies);
+
   return (
     <MainDiv>
-      <SearchInput />
+      <SearchInput title={title} />
       <FlexContainerStyled>
         {movies.map((movies) => {
-          {
-            console.log(movies);
-          }
           return <CardMovie data={movies} key={movies.title} />;
         })}
       </FlexContainerStyled>
