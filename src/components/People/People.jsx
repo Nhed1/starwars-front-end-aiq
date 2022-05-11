@@ -3,6 +3,7 @@ import axios from "axios";
 import { getId } from "../../util/getId";
 
 import { FlexContainerStyled, MainDiv } from "../../styles/ContainerStyles";
+import { Pagination } from "aiq-design-system";
 
 import { CardPerson } from "./CardPerson/CardPerson";
 import { LoadingScreen } from "../LoadingScreen";
@@ -10,7 +11,7 @@ import { ErrorScreen } from "../ErrorScreen";
 import { SearchInput } from "../SearchInput/SearchInput";
 
 export function People({ title }) {
-  let URL = `https://swapi.dev/api/people`;
+  let URL = `https://swapi.dev/api/people/?page=1`;
 
   const { isLoading, error, data } = useQuery("repoPeople", () => {
     return axios.get(URL).then((data) => data?.data);
@@ -39,6 +40,7 @@ export function People({ title }) {
           return <CardPerson data={people} key={people.name} title={title} />;
         })}
       </FlexContainerStyled>
+      <Pagination page={1} count={10} />
     </MainDiv>
   );
 }

@@ -2,12 +2,17 @@ import styled from "styled-components";
 import { css } from "styled-components";
 
 export const HeaderDiv = styled.div`
+  position: sticky;
+  top: 0;
+
+  height: 100px;
+  padding: 0 20px;
+
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 100px;
+
   background: var(--gray-900) 0% 0% no-repeat padding-box;
-  padding: 0 20px;
 
   div {
     display: flex;
