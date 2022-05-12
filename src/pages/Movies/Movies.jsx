@@ -30,8 +30,6 @@ export function Movies({ title }) {
     };
   });
 
-  console.log(movies);
-
   return (
     <MainDiv>
       <SearchInput title={title} />
