@@ -14,17 +14,16 @@ import { useEffect, useState } from "react";
 export function People({ title }) {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
-  const [searchChangeDelay, setSearchChangeDelay] = useState(true);
+  const [searchDelay, setSearchDelay] = useState("");
   const url = "https://swapi.dev/api/people/";
 
   useEffect(() => {
-    setTimeout(() => {
-      setSearchChangeDelay(!searchChangeDelay);
-    }, 500);
+    const timeOut = setTimeout(() => setSearchDelay(search), 500);
+    return () => clearTimeout(timeOut);
   }, [search]);
 
   const { isLoading, error, data } = useQuery(
-    ["repoPeople", searchChangeDelay],
+    ["repoPeople", searchDelay, page],
     () => {
       if (search === "") {
         return axios.get(`${url}?page=${page}`).then((data) => data?.data);
