@@ -9,20 +9,29 @@ import { CardPerson } from "../../components/CardPerson/CardPerson";
 import { LoadingScreen } from "../LoadingScreen";
 import { ErrorScreen } from "../ErrorScreen";
 import { SearchInput } from "../../components/SearchInput/SearchInput";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function People({ title }) {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
+  const [searchChangeDelay, setSearchChangeDelay] = useState(true);
   const url = "https://swapi.dev/api/people/";
 
-  const { isLoading, error, data } = useQuery(["repoPeople", search], () => {
-    if (search === "") {
-      return axios.get(`${url}?page=${page}`).then((data) => data?.data);
-    }
+  useEffect(() => {
+    setTimeout(() => {
+      setSearchChangeDelay(!searchChangeDelay);
+    }, 500);
+  }, [search]);
 
-    return axios.get(`${url}?search=${search}`).then((data) => data?.data);
-  });
+  const { isLoading, error, data } = useQuery(
+    ["repoPeople", searchChangeDelay],
+    () => {
+      if (search === "") {
+        return axios.get(`${url}?page=${page}`).then((data) => data?.data);
+      }
+      return axios.get(`${url}?search=${search}`).then((data) => data?.data);
+    }
+  );
 
   if (isLoading || !data) return <LoadingScreen />;
   if (error) return <ErrorScreen error={error} />;
