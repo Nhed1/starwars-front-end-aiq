@@ -19,7 +19,6 @@ export default function PersonDetails() {
   });
   if (isLoading || !data) return <LoadingScreen />;
   if (error) return <ErrorScreen error={error} />;
-  console.log(data);
 
   return (
     <FlexDiv flexDirection="column">

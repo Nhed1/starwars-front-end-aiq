@@ -13,11 +13,15 @@ import { useState } from "react";
 
 export function People({ title }) {
   const [page, setPage] = useState(1);
+  const [search, setSearch] = useState("");
+  const url = "https://swapi.dev/api/people/";
 
-  const { isLoading, error, data } = useQuery(["repoPeople", page], () => {
-    return axios
-      .get(`https://swapi.dev/api/people/?page=${page}`)
-      .then((data) => data?.data);
+  const { isLoading, error, data } = useQuery(["repoPeople", search], () => {
+    if (search === "") {
+      return axios.get(`${url}?page=${page}`).then((data) => data?.data);
+    }
+
+    return axios.get(`${url}?search=${search}`).then((data) => data?.data);
   });
 
   if (isLoading || !data) return <LoadingScreen />;
@@ -37,7 +41,8 @@ export function People({ title }) {
   });
   return (
     <MainDiv>
-      <SearchInput title={title} />
+      <SearchInput title={title} setSearch={setSearch} search={search} />
+      {console.log(search)}
       <FlexContainerStyled>
         {people.map((people) => {
           return <CardPerson data={people} key={people.name} title={title} />;
