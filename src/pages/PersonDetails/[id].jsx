@@ -8,7 +8,8 @@ import { LoadingScreen } from "../LoadingScreen";
 import { ErrorScreen } from "../ErrorScreen";
 import { TextInfo } from "../../components/TextInfo";
 import styled from "styled-components";
-import ChartMoviesCharacter from "../../components/ChartMoviesCharacter";
+import ChartMoviesCharacter from "../../components/ChartMovies/ChartMoviesCharacter";
+import moment from "moment";
 
 export default function PersonDetails() {
   let { id } = useParams();
@@ -29,8 +30,12 @@ export default function PersonDetails() {
           </Text>
         </Flex>
         <Flex flexDirection="column">
-          <TextInfo>atualizada em {data.edited}</TextInfo>
-          <TextInfo>criada em {data.created}</TextInfo>
+          <TextInfo>
+            atualizada em {moment(data.edited).format("DD/MM/YYYY")}
+          </TextInfo>
+          <TextInfo>
+            criada em {moment(data.created).format("DD/MM/YYYY")}
+          </TextInfo>
         </Flex>
       </Flex>
       <Flex justifyContent="space-between">
@@ -38,7 +43,7 @@ export default function PersonDetails() {
           <PersonInformation data={data} />
           <VehiclesInformation data={data} />
         </Flex>
-        <ChartMoviesCharacter />
+        <ChartMoviesCharacter data={data} />
       </Flex>
     </FlexDiv>
   );
