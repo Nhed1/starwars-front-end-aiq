@@ -18,7 +18,7 @@ export function People({ title }) {
   const url = "https://swapi.dev/api/people/";
 
   useEffect(() => {
-    const timeOut = setTimeout(() => setSearchDelay(search), 500);
+    const timeOut = setTimeout(() => setSearchDelay(search), 600);
     return () => clearTimeout(timeOut);
   }, [search]);
 
@@ -51,7 +51,6 @@ export function People({ title }) {
   return (
     <MainDiv>
       <SearchInput title={title} setSearch={setSearch} search={search} />
-      {console.log(search)}
       <FlexContainerStyled>
         {people.map((people) => {
           return <CardPerson data={people} key={people.name} title={title} />;
