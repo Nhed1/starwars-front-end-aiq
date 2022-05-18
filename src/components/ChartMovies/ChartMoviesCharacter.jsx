@@ -27,7 +27,8 @@ export default function ChartMoviesCharacter({ data }) {
 const FlexChartPerson = styled(Flex)`
   justify-content: space-between;
   height: fit-content;
-  width: 600px;
+  width: 50%;
+  height: 500px;
   border: 2px var(--gray-200) solid;
   background-color: var(--gray-500);
   padding: 20px;

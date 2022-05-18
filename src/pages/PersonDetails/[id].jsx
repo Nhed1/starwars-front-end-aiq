@@ -38,13 +38,13 @@ export default function PersonDetails() {
           </TextInfo>
         </Flex>
       </Flex>
-      <Flex justifyContent="space-between">
-        <Flex flexDirection="column">
+      <FlexInformation>
+        <Flex flexDirection="column" width="45%">
           <PersonInformation data={data} />
           <VehiclesInformation data={data} />
         </Flex>
         <ChartMoviesCharacter data={data} />
-      </Flex>
+      </FlexInformation>
     </FlexDiv>
   );
 }
@@ -53,4 +53,9 @@ const FlexDiv = styled(Flex)`
   padding: 40px;
   width: 100%;
   height: calc(100vh - 100px);
+`;
+
+const FlexInformation = styled(Flex)`
+  justify-content: space-between;
+  width: 100%;
 `;
