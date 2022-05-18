@@ -9,7 +9,7 @@ export default function ChartMoviesCharacter({ data }) {
   return (
     <FlexChartPerson flexDirection="column">
       <Text>Aparições em filmes</Text>
-      <ChartMoviesComponent />
+      <ChartMoviesComponent data={data} />
       <Text>Aparece em</Text>
       <Flex flexDirection="column">
         {data.films.map((film) => {

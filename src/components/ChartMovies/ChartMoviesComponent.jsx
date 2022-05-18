@@ -1,91 +1,45 @@
 import { Pie, G2 } from "@ant-design/plots";
 import React from "react";
 
-export function ChartMoviesComponent() {
+export function ChartMoviesComponent({ data }) {
+  const filmsOfCharacter = data.films.length;
+  const films = 6 - filmsOfCharacter;
+  console.log(filmsOfCharacter);
   const DemoPie = () => {
     const G = G2.getEngine("canvas");
     const data = [
       {
-        type: "leo",
-        value: 100,
+        type: "Aparições em filmes",
+        value: filmsOfCharacter,
       },
       {
-        type: "分类二",
-        value: 200,
-      },
-      {
-        type: "分类三",
-        value: 300,
-      },
-      {
-        type: "分类四",
-        value: 100,
-      },
-      {
-        type: "分类五",
-        value: 100,
-      },
-      {
-        type: "其他",
-        value: 200,
+        type: "Filmes",
+        value: films,
       },
     ];
-    const cfg = {
+    const config = {
       appendPadding: 10,
       data,
       angleField: "value",
       colorField: "type",
-      radius: 0.75,
-      legend: false,
+      radius: 0.9,
       label: {
-        type: "spider",
-        labelHeight: 40,
-        formatter: (data, mappingData) => {
-          const group = new G.Group({});
-          group.addShape({
-            type: "circle",
-            attrs: {
-              x: 0,
-              y: 0,
-              width: 40,
-              height: 50,
-              r: 5,
-              fill: mappingData.color,
-            },
-          });
-          group.addShape({
-            type: "text",
-            attrs: {
-              x: 10,
-              y: 8,
-              text: `${data.type}`,
-              fill: mappingData.color,
-            },
-          });
-          group.addShape({
-            type: "text",
-            attrs: {
-              x: 0,
-              y: 25,
-              text: `${data.value}个 ${data.percent * 100}%`,
-              fill: "rgba(0, 0, 0, 0.65)",
-              fontWeight: 700,
-            },
-          });
-          return group;
+        type: "inner",
+        offset: "-30%",
+        content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
+        style: {
+          fontSize: 14,
+          textAlign: "center",
         },
       },
       interactions: [
-        {
-          type: "element-selected",
-        },
         {
           type: "element-active",
         },
       ],
     };
-    const config = cfg;
-    return <Pie {...config} />;
+    const cfg = config;
+    return <Pie {...cfg} />;
   };
   return <DemoPie />;
 }
