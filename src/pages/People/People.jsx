@@ -33,6 +33,7 @@ export function People({ title }) {
   );
 
   if (isLoading || !data) return <LoadingScreen />;
+
   if (error) return <ErrorScreen error={error} />;
 
   const people = data?.results?.map((person) => {

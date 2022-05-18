@@ -1,6 +1,5 @@
 import { SearchDiv, InputStyled } from "./SearchStyles";
 import { useTranslation } from "react-i18next";
-import { getValue } from "@testing-library/user-event/dist/utils";
 
 export function SearchInput({ title, search, setSearch }) {
   const { t: translate } = useTranslation();
@@ -9,9 +8,9 @@ export function SearchInput({ title, search, setSearch }) {
     <SearchDiv>
       <h1>{title}</h1>
       <InputStyled
+        autoFocus
         value={search}
         onInput={(e) => setSearch(e.target.value)}
-        onChange={getValue}
         type="text"
         width="100%"
         placeholder={`${translate(
