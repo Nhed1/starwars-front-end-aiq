@@ -10,6 +10,7 @@ export function PersonInformation({ data }) {
       </Text>
 
       <Flex>
+        {console.log(data.species)}
         <TextInfo>ESPÉCIE: {data.species[0]}</TextInfo>
         <TextInfo>ALTURA {data.height}</TextInfo>
         <TextInfo>PESO {data.mass}</TextInfo>
