@@ -7,6 +7,22 @@
     "title": "personagens",
     "inputPlaceholder": "FITRE PELO NOME DOS "
   },
+  "date": {
+    "created": "criado em: ",
+    "edited": "editado em: "
+  },
+  "movies_details": {
+    "episode": "episodio",
+    "synopsis": "sinopse",
+    "director": "diretor",
+    "producers": "produtores",
+    "release_date": "lançamento ",
+    "characters": "personagens",
+    "species": "especies",
+    "vehicles": "veículos",
+    "starships": "naves",
+    "planets": "planetas"
+  },
   "card": {
     "birth": {
       "title": "nascimento",
@@ -30,7 +46,6 @@
     "button": {
       "title": "ver detalhes"
     },
-
     "errorMessages": ["Não possui", "Não possui veículos"]
   }
 }

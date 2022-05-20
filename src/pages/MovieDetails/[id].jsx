@@ -9,8 +9,11 @@ import styled from "styled-components";
 import ProductionInformation from "../../components/MoviesDetailsComponents/ProductionInformation";
 import Synopsis from "../../components/MoviesDetailsComponents/Synopsis";
 import MovieCharacters from "../../components/MoviesDetailsComponents/MovieCharacters";
+import moment from "moment";
+import { useTranslation } from "react-i18next";
 
 export default function MovieDetails() {
+  const { t: translate } = useTranslation();
   let { id } = useParams();
 
   const { isLoading, error, data } = useQuery(["repoMovie", id], () => {
@@ -25,20 +28,30 @@ export default function MovieDetails() {
     <FlexDiv flexDirection="column">
       <Flex justifyContent="space-between">
         <Flex flexDirection="column">
-          <Text>{data.title}</Text>
-          <Text>{data.episode_id}</Text>
+          <Text color="primary" fontSize="xxlarge">
+            {data.title}
+          </Text>
+          <Text color="primary" fontSize="xxlarge">
+            {translate("movies_details:episode")} {data.episode_id}
+          </Text>
         </Flex>
         <Flex flexDirection="column">
-          <Text>{data.edited}</Text>
-          <Text>{data.created}</Text>
+          <Text>
+            {translate("date:created")}
+            {moment(data.edited).format("DD/MM/YYYY")}
+          </Text>
+          <Text>
+            {translate("date:edited")}
+            {moment(data.created).format("DD/MM/YYYY")}
+          </Text>
         </Flex>
       </Flex>
       <Flex justifyContent="space-between">
-        <Flex flexDirection="column">
-          <Synopsis />
-          <ProductionInformation />
+        <Flex flexDirection="column" width="30%">
+          <Synopsis openingCrawl={data.opening_crawl} />
+          <ProductionInformation data={data} />
         </Flex>
-        <MovieCharacters />
+        <MovieCharacters data={data} />
       </Flex>
     </FlexDiv>
   );
