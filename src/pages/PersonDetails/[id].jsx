@@ -10,8 +10,11 @@ import { TextInfo } from "../../components/TextInfo";
 import styled from "styled-components";
 import ChartMoviesCharacter from "../../components/ChartMovies/ChartMoviesCharacter";
 import moment from "moment";
+import { useTranslation } from "react-i18next";
 
 export default function PersonDetails() {
+  const { t: translate } = useTranslation();
+
   let { id } = useParams();
   const { isLoading, error, data } = useQuery(["repoPerson", id], () => {
     return axios
@@ -31,10 +34,12 @@ export default function PersonDetails() {
         </Flex>
         <Flex flexDirection="column">
           <TextInfo>
-            atualizada em {moment(data.edited).format("DD/MM/YYYY")}
+            {translate("date:edited")}{" "}
+            {moment(data.edited).format("DD/MM/YYYY")}
           </TextInfo>
           <TextInfo>
-            criada em {moment(data.created).format("DD/MM/YYYY")}
+            {translate("date:created")}{" "}
+            {moment(data.created).format("DD/MM/YYYY")}
           </TextInfo>
         </Flex>
       </Flex>

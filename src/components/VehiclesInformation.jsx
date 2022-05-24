@@ -2,12 +2,15 @@ import { Flex, Text } from "aiq-design-system";
 import { APIData } from "./ApiData";
 import { TextInfo } from "./TextInfo";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 export function VehiclesInformation({ data }) {
+  const { t: translate } = useTranslation();
+
   return (
     <FlexCardVehicle flexDirection="column">
-      <Text size="xxlarge" color="primary" textAlign="center">
-        veículos e naves utilizados
+      <Text size="xxlarge" color="primary">
+        {translate("characters_details:title_vehicles")}
       </Text>
 
       <Flex justifyContent="space-between">
@@ -22,11 +25,13 @@ export function VehiclesInformation({ data }) {
               );
             })
           ) : (
-            <TextInfo>Não possui veículos</TextInfo>
+            <TextInfo>
+              {translate("characters_details:vehicles_error")}
+            </TextInfo>
           )}
         </Flex>
         <Flex flexDirection="column">
-          <Text>naves</Text>
+          <Text>{translate("characters_details:starships")}</Text>
           {data.starships?.length > 0 ? (
             data.starships.map((starship) => {
               return (
@@ -36,7 +41,9 @@ export function VehiclesInformation({ data }) {
               );
             })
           ) : (
-            <TextInfo>Não possui veículos</TextInfo>
+            <TextInfo>
+              {translate("characters_details:vehicles_error")}
+            </TextInfo>
           )}
         </Flex>
       </Flex>

@@ -11,6 +11,21 @@
     "created": "criado em: ",
     "edited": "editado em: "
   },
+  "characters_details": {
+    "title_character": "informações físicas",
+    "title_vehicles": "veículos e naves utilizados",
+    "specie": "ESPÉCIE:",
+    "specie_error": "ESPÉCIE: não encontrada",
+    "height": "ALTURA: ",
+    "weight": "PESO: ",
+    "hair_color": "COR DO CABELO ",
+    "vehicles": "veiculos",
+    "vehicles_error": "Não possui veículos",
+    "starships": "naves",
+    "starships_error": "Não possui naves",
+    "show_up": "aparições em filmes",
+    "show_up_2": "aparece em"
+  },
   "movies_details": {
     "episode": "episodio",
     "synopsis": "sinopse",
@@ -23,6 +38,7 @@
     "starships": "naves",
     "planets": "planetas"
   },
+
   "card": {
     "birth": {
       "title": "nascimento",

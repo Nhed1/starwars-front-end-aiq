@@ -1,20 +1,44 @@
 import { Flex, Text } from "aiq-design-system";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+import { APIData } from "./ApiData";
 import { TextInfo } from "./TextInfo";
 
 export function PersonInformation({ data }) {
+  const { t: translate } = useTranslation();
+
   return (
     <FlexCardPerson flexDirection="column">
       <Text size="xxlarge" color="primary">
-        informações físicas
+        {translate("characters_details:title_character")}
       </Text>
 
       <Flex>
-        {console.log(data.species)}
-        <TextInfo>ESPÉCIE: {data.species[0]}</TextInfo>
-        <TextInfo>ALTURA {data.height}</TextInfo>
-        <TextInfo>PESO {data.mass}</TextInfo>
-        <TextInfo>COR DO CABELO {data.hair_color}</TextInfo>
+        {data.species > 0 ? (
+          data.species.map((specie) => {
+            return (
+              <TextInfo>
+                {translate("characters_details:specie")}
+                <APIData url={specie} field="name" />
+              </TextInfo>
+            );
+          })
+        ) : (
+          <TextInfo>{translate("characters_details:specie_error")}</TextInfo>
+        )}
+        <TextInfo>
+          {translate("characters_details:height")}
+
+          {data.height}
+        </TextInfo>
+        <TextInfo>
+          {translate("characters_details:weight")}
+          {data.mass}
+        </TextInfo>
+        <TextInfo>
+          {translate("characters_details:hair_color")}
+          {data.hair_color}
+        </TextInfo>
       </Flex>
     </FlexCardPerson>
   );
