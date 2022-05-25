@@ -12,12 +12,10 @@ export default function Register() {
       <Text textAlign="center" color="primary" fontSize="xxlarge">
         Participe do próximo filme
       </Text>
-      <RegisterForm>
-        <Flex flexDirection="column">
-          <Text color="primary" mb="10px" fontSize="xlarge">
-            Digite suas informações
-          </Text>
-        </Flex>
+      <RegisterDiv flexDirection="column" marginY="30px">
+        <Text color="primary" mb="10px" fontSize="xlarge">
+          Digite suas informações
+        </Text>
         <Text>informações gerais</Text>
         <Flex justifyContent="space-between">
           <RegisterInput label="NOME" placeholder="Digite seu nome" />
@@ -45,7 +43,7 @@ export default function Register() {
         </Flex>
         <RegisterMovieInformation />
         <RegisterButton text="Enviar" />
-      </RegisterForm>
+      </RegisterDiv>
     </RegisterContainer>
   );
 }
@@ -57,10 +55,10 @@ const RegisterContainer = styled(Flex)`
   align-items: center;
 `;
 
-const RegisterForm = styled.form`
+const RegisterDiv = styled(Flex)`
   width: 100%;
+  margin-top: 20px;
   padding: 20px;
   background-color: var(--gray-500);
   border: 1px var(--gray-200) solid;
-  margin: 40px 0;
 `;
