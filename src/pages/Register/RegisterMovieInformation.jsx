@@ -5,7 +5,14 @@ import { TextInfo } from "../../components/TextInfo";
 import { RegisterButton } from "./RegisterButton";
 
 export default function RegisterMovieInformation() {
-  const itens = ["React", "CSS", "PHP", "HTML"];
+  const itens = [
+    "Luke Skywalker",
+    "R2-D2",
+    "Darth Vader",
+    "Leia Organa",
+    "Anakin Skywalker",
+    "Han Solo",
+  ];
   return (
     <Flex flexDirection="column" mt="20px">
       <Text>Sobre o seu contato com star wars</Text>
@@ -44,6 +51,6 @@ const SelectStyled = styled(Select)`
 const InputStyled = styled(Input)`
   background-color: var(--gray-500);
   border: 1px solid var(--gray-200);
-  height: 100px;
+  /* height: 100px; */
   color: var(--white);
 `;

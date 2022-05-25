@@ -4,7 +4,7 @@ import React from "react";
 export function ChartMoviesComponent({ data }) {
   const filmsOfCharacter = data.films.length;
   const films = 6 - filmsOfCharacter;
-  console.log(filmsOfCharacter);
+
   const DemoPie = () => {
     const G = G2.getEngine("canvas");
     const data = [
@@ -21,7 +21,9 @@ export function ChartMoviesComponent({ data }) {
       appendPadding: 10,
       data,
       angleField: "value",
+      color: ["#ffe81f", "#535151"],
       colorField: "type",
+      legend: false,
       radius: 0.9,
       label: {
         type: "inner",
