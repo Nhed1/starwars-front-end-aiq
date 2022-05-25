@@ -34,7 +34,9 @@ export function Header({ setTitle }) {
       >
         {translate("header:button.1")}
       </SelectButton>
-      <RegisterButton>{translate("header:button.2")}</RegisterButton>
+      <RegisterButton onClick={() => navigate("/register")}>
+        {translate("header:button.2")}
+      </RegisterButton>
     </HeaderDiv>
   );
 }

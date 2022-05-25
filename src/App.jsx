@@ -14,6 +14,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import Register from "./pages/Register/Register";
 
 export function App() {
   const [title, setTitle] = useState("personagens");
@@ -26,6 +27,7 @@ export function App() {
         <Routes>
           <Route path="/people" element={<People title="personagens" />} />
           <Route path="/movies" element={<Movies title="filmes" />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/people/:id" element={<PersonDetails />} />
           <Route path="/movies/:id" element={<MovieDetails />} />
           <Route path="*" element={<Navigate to="/people" replace />} />
