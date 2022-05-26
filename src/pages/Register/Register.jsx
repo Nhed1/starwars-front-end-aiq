@@ -1,5 +1,5 @@
-import { Button, Flex, Input, Select, Text } from "aiq-design-system";
-import React from "react";
+import { Flex, Text } from "aiq-design-system";
+import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import { TextInfo } from "../../components/TextInfo";
 import { RegisterButton } from "./RegisterButton";
@@ -12,11 +12,13 @@ export default function Register() {
       <Text textAlign="center" color="primary" fontSize="xxlarge">
         Participe do próximo filme
       </Text>
-      <RegisterDiv flexDirection="column" marginY="30px">
-        <Text color="primary" mb="10px" fontSize="xlarge">
-          Digite suas informações
-        </Text>
-        <Text>informações gerais</Text>
+      <RegisterForm marginY="30px">
+        <Flex flexDirection="column">
+          <Text color="primary" mb="10px" fontSize="xlarge">
+            Digite suas informações
+          </Text>
+          <Text>informações gerais</Text>
+        </Flex>
         <Flex justifyContent="space-between">
           <RegisterInput label="NOME" placeholder="Digite seu nome" />
           <RegisterInput
@@ -43,7 +45,7 @@ export default function Register() {
         </Flex>
         <RegisterMovieInformation />
         <RegisterButton text="Enviar" />
-      </RegisterDiv>
+      </RegisterForm>
     </RegisterContainer>
   );
 }
@@ -55,7 +57,7 @@ const RegisterContainer = styled(Flex)`
   align-items: center;
 `;
 
-const RegisterDiv = styled(Flex)`
+const RegisterForm = styled.form`
   width: 100%;
   margin-top: 20px;
   padding: 20px;
